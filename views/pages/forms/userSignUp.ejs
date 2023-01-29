@@ -1,0 +1,203 @@
+<div class="user__signup__form">
+  <div class="mt-5">
+    <h2 class="fw-bold">Create an account</h2>
+    <p>Let's get started with your Sparx account</p>
+  </div>
+
+  <div class="mt-5">
+    <form method="POST">
+      <div>
+        <label class="form-label fw-bold">First Name</label>
+        <input
+          type="text"
+          name="firstName"
+          class="form-control <%- errors?.firstName ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.firstName %>"
+          placeholder="Enter your first name"
+        />
+        <% if (errors?.firstName) { %>
+        <div class="invalid-feedback mb-2"><%= errors.firstName.message %></div>
+        <% } %>
+      </div>
+      <div>
+        <label class="form-label fw-bold">Last Name</label>
+        <input
+          type="text"
+          name="lastName"
+          class="form-control <%- errors?.lastName ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.lastName %>"
+          placeholder="Enter your last name"
+        />
+        <% if (errors?.lastName) { %>
+        <div class="invalid-feedback mb-2"><%= errors.lastName.message %></div>
+        <% } %>
+      </div>
+      <div>
+        <label class="form-label fw-bold">Email</label>
+        <input
+          type="email"
+          name="email"
+          class="form-control <%- errors?.email ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.email %>"
+          placeholder="Enter your email address"
+        />
+        <% if(errors?.email) { %>
+        <div class="invalid-feedback mb-2"><%= errors.email.message %></div>
+        <% } %>
+      </div>
+      <div>
+        <label class="form-label fw-bold">Password</label>
+        <input
+          type="password"
+          name="password"
+          class="form-control <%- errors?.password ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.password %>"
+          placeholder="Enter your password"
+        />
+        <% if (errors?.password) { %>
+        <div class="invalid-feedback mb-2"><%= errors.password.message %></div>
+        <% } %>
+      </div>
+      <div>
+        <label class="form-label fw-bold">Age</label>
+        <input
+          type="number"
+          name="age"
+          class="form-control <%- errors?.age ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.age %>"
+          placeholder="Enter your age"
+        />
+        <% if (errors?.age) { %>
+        <div class="invalid-feedback mb-2"><%= errors.age.message %></div>
+        <% } %>
+      </div>
+      <div>
+        <label class="form-label fw-bold">Country</label>
+        <input
+          type="text"
+          name="country"
+          class="form-control <%- errors?.country ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.country %>"
+          placeholder="Enter your country"
+        />
+        <% if (errors?.country) { %>
+        <div class="invalid-feedback mb-2"><%= errors.country.message %></div>
+        <% } %>
+      </div>
+
+      <div class="d-flex justify-content-center flex-column mt-3">
+        <div class="mt-5">
+          <button class="btn btn-dark sign__in--btn">Create an account</button>
+          <p class="mt-5 text-center">
+            Already have an Account?
+            <a href="/account/user/signin" class="text-primary">Sign In</a>
+          </p>
+        </div>
+      </div>
+
+      <% if (errors) { %>
+      <div class="text-danger mt-5 mb-5">* Something went wrong</div>
+      <% } %>
+    </form>
+  </div>
+</div>
+
+<!-- <div class="user_container--signup">
+  <h2 class="mb-5 display-5">Create an Account</h2>
+  <form method="POST" class="form_container">
+    <div>
+      <label class="mb-1 fw-bold">First Name</label>
+      <div class="mb-4">
+        <input
+          class="form-control <% if (errors?.firstName) { %> is-invalid <% } %>"
+          type="text"
+          name="firstName"
+          value="<%= reqBodyData.firstName %>"
+          placeholder="Enter your first name"
+        />
+      </div>
+      <% if (errors?.firstName) { %>
+      <div class="invalid-feedback mb-2 fw-bold">
+        <%= errors.firstName.message %>
+      </div>
+      <% } %>
+    </div>
+    <div>
+      <label class="mb-1 fw-bold">Last Name</label>
+      <div class="mb-4">
+        <input
+          class="form-control <% if (errors?.lastName) { %> is-invalid <% } %>"
+          type="text"
+          name="lastName"
+          value="<%= reqBodyData.lastName %>"
+          placeholder="Enter your last name"
+        />
+      </div>
+      <% if (errors?.lastName) { %>
+      <div class="invalid-feedback mb-2 fw-bold">
+        <%= errors.lastName.message %>
+      </div>
+      <% } %>
+    </div>
+    <div>
+      <label class="mb-1 fw-bold">Email</label>
+      <div class="mb-4">
+        <input
+          class="form-control <% if (errors?.email) { %> is-invalid <% } %>"
+          type="email"
+          name="email"
+          value="<%= reqBodyData.email %>"
+          placeholder="Enter your email address"
+        />
+      </div>
+      <% if(errors?.email) { %>
+      <div class="invalid-feedback mb-2 fw-bold">
+        <%= errors.email.message %>
+      </div>
+      <% } %>
+    </div>
+    <div>
+      <label class="mb-1 fw-bold">Password</label>
+      <div class="mb-4">
+        <input
+          class="form-control <% if (errors?.password) { %> is-invalid <% } %>"
+          type="password"
+          name="password"
+          value="<%= reqBodyData.password %>"
+          placeholder="Enter your password"
+        />
+      </div>
+      <% if (errors?.password) { %>
+      <div class="invalid-feedback mb-2 fw-bold">
+        <%= errors?.password.message %>
+      </div>
+      <% } %>
+    </div>
+    <div>
+      <label class="mb-1 fw-bold">Age</label>
+      <div class="mb-4">
+        <input
+          class="form-control <% if (errors?.age) { %> is-invalid <% } %>"
+          type="number"
+          name="age"
+          value="<%= reqBodyData.age %>"
+          placeholder="Enter your age"
+        />
+      </div>
+      <% if (errors?.age) { %>
+      <div class="invalid-feedback mb-2 fw-bold"><%= errors.age.message %></div>
+      <% } %>
+    </div>
+
+    <button class="btn btn-dark sign_up--btn mt-5">Sign Up</button>
+    <div class="mt-5 text-center">
+      <p>
+        Already have an Account?
+        <a href="/account/user/signin" class="text-white">Sign In</a>
+      </p>
+    </div>
+    <% if (errors) { %>
+    <div class="mt-2 text-danger fw-bold">* Validation data went wrong</div>
+    <% } %>
+  </form>
+</div> -->

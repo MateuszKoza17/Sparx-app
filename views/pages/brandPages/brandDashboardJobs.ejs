@@ -1,0 +1,187 @@
+<% if (brand) { %>
+<nav class="navbar navbar-expand-lg navbar-dark mt-5">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold">Sparx.</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/account/brand/dashboard">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/account/brand/dashboard/jobs">Jobs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/account/brand/dashboard/settings"
+            >Settings</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/account/brand/dashboard/signout"
+            >Sign Out</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="brand__job__form__container">
+  <div class="mb-5">
+    <h3 class="fw-bold display-3">Company <%- brand.name %></h3>
+    <p>Create a new Job Offer</p>
+  </div>
+  <div class="d-flex flex-column">
+    <form method="POST">
+      <div>
+        <label class="form-label fw-bold">Offer Title</label>
+        <input
+          type="text"
+          name="title"
+          class="form-control <%- errors?.title ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.title %>"
+          placeholder="Job title"
+        />
+        <% if (errors?.title) { %>
+        <div class="invalid-feedback"><%= errors.title.message %></div>
+        <% } %>
+      </div>
+      <div>
+        <label class="form-label fw-bold">Brand Slug</label>
+        <input
+          type="text"
+          name="brandSlug"
+          class="form-control <%- errors?.brandSlug ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.brandSlug %>"
+          placeholder="Brand slug"
+        />
+        <% if (errors?.brandSlug) { %>
+        <div class="invalid-feedback"><%= errors.brandSlug.message %></div>
+        <% } %>
+      </div>
+      <div>
+        <label class="form-label fw-bold">City</label>
+        <input
+          type="text"
+          name="city"
+          class="form-control <%- errors?.city ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.city %>"
+          placeholder="Job location"
+        />
+        <% if (errors?.city) { %>
+        <div class="invalid-feedback"><%= errors.city.message %></div>
+        <% } %>
+      </div>
+      <div>
+        <label class="form-label fw-bold">Technology Stack</label>
+        <input
+          type="text"
+          name="techStack"
+          class="form-control <%- errors?.techStack ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.techStack %>"
+          placeholder="Job technology stack"
+        />
+        <% if(errors?.techStack) { %>
+        <div class="invalid-feedback"><%= errors.techStack.message %></div>
+        <% } %>
+      </div>
+      <div>
+        <label class="form-label fw-bold">Description</label>
+        <input
+          type="text"
+          name="description"
+          class="form-control <%- errors?.description ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.description %>"
+          placeholder="Job description"
+        />
+        <% if (errors?.description) { %>
+        <div class="invalid-feedback"><%= errors.description.message %></div>
+        <% } %>
+      </div>
+      <div>
+        <label class="form-label fw-bold">Price</label>
+        <input
+          type="text"
+          name="price"
+          class="form-control <%- errors?.price ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.price %>"
+          placeholder="Job price"
+        />
+        <% if (errors?.price) { %>
+        <div class="invalid-feedback"><%= errors.price.message %></div>
+        <% } %>
+      </div>
+      <div>
+        <label class="form-label fw-bold">Seniority</label>
+        <input
+          type="text"
+          name="seniority"
+          class="form-control <%- errors?.seniority ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.seniority %>"
+          placeholder="Job seniority level"
+        />
+        <% if (errors?.seniority) { %>
+        <div class="invalid-feedback"><%= errors.seniority.message %></div>
+        <% } %>
+      </div>
+      <div>
+        <label class="form-label fw-bold">Employment Type</label>
+        <input
+          type="text"
+          name="employmentType"
+          class="form-control <%- errors?.employmentType ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.employmentType %>"
+          placeholder="Job employment type"
+        />
+        <% if (errors?.employmentType) { %>
+        <div class="invalid-feedback"><%= errors.employmentType.message %></div>
+        <% } %>
+      </div>
+
+      <button class="btn btn-dark mt-4">Publish Job</button>
+    </form>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div>
+    <h4 class="display-4 fw-bold">Jobs Posted</h4>
+    <p>Edit posted job offers</p>
+  </div>
+
+  <div>
+    <% brandJobs.forEach(job => { %>
+    <div class="card m-5">
+      <div class="card-body text-white">
+        <h5 class="card-title fw-bold"><%= job.title %></h5>
+        <p class="card-text"><%= job.description %></p>
+        <a
+          href="/account/brand/dashboard/jobs/delete"
+          class="btn btn-outline-danger"
+          role="button"
+          >Delete Offer</a
+        >
+      </div>
+    </div>
+    <% }); %>
+  </div>
+
+  <% } else { %>
+  <div class="container auth__info text-center">
+    <h2 class="fw-bold">
+      Sign to company account or create an company account.
+    </h2>
+    <a href="/" class="mt-5" role="button">Home Page</a>
+  </div>
+  <% }%>
+</div>

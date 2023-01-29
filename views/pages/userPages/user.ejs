@@ -1,0 +1,49 @@
+<div class="user__profile__container">
+  <div class="profile__img__section">
+    <div class="profile__img me-4"></div>
+    <div>
+      <h4 class="display-4 fw-bold">
+        <%= currentUser.firstName %> <%= currentUser.lastName %>
+      </h4>
+      <p><span class="fw-bold">Age:</span> <%= currentUser.age %></p>
+      <code class="mt-3 text-success fw-bold"><%= currentUser.userJob %></code>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <h4 class="fw-bold">Skills</h4>
+    <div>
+      <div type="button" class="btn btn-outline-success me-2">
+        <%= currentUser.technologySkills %>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <h4 class="fw-bold">About Me</h4>
+    <p><%= currentUser.userDescription %></p>
+  </div>
+
+  <div class="mt-5">
+    <h4 class="fw-bold mb-3">General Information</h4>
+    <div>
+      <h6 class="fw-bold">Contact</h6>
+      <p><span class="fw-bold">Email:</span> <%= currentUser.email %></p>
+    </div>
+    <div>
+      <h6 class="fw-bold">Portfolio</h6>
+      <p>
+        <span class="fw-bold">Website:</span> <%= currentUser.websiteLink %>
+      </p>
+      <p><span class="fw-bold">GitHub:</span> <%= currentUser.githubLink %></p>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <h6 class="fw-bold">Joined</h6>
+    <p><%= currentUser.date %></p>
+    <a class="btn btn-dark mt-4 mb-5" role="button" href="/search/users/all">
+      <- Back
+    </a>
+  </div>
+</div>

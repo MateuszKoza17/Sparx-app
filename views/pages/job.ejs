@@ -1,0 +1,48 @@
+<div class="profile__img__section">
+  <div class="profile__img me-4"></div>
+  <div>
+    <h4 class="display-4 fw-bold"></h4>
+    <p>
+      <span class="fw-bold">Brand: <%= currentJobOffer.brandSlug %></span>
+    </p>
+    <code class="mt-3 text-success fw-bold">
+      <%= currentJobOffer.employmentType %>
+    </code>
+  </div>
+</div>
+
+<div class="mt-5">
+  <h4 class="fw-bold">Required Skills</h4>
+  <div>
+    <div type="button" class="btn btn-outline-success me-2">
+      <%= currentJobOffer.techStack %>
+    </div>
+  </div>
+</div>
+
+<div class="mt-5">
+  <h4 class="fw-bold">Job Description</h4>
+  <p><%= currentJobOffer.description %></p>
+</div>
+
+<div class="mt-5">
+  <h4 class="fw-bold mb-3">General Information</h4>
+  <div>
+    <p><span class="fw-bold">City:</span> <%= currentJobOffer.city %></p>
+  </div>
+  <div>
+    <p><span class="fw-bold">Price:</span> <%= currentJobOffer.price %> zł</p>
+  </div>
+  <div>
+    <p>
+      <span class="fw-bold">Seniority:</span>
+      <%= currentJobOffer.seniority %>
+    </p>
+  </div>
+</div>
+
+<div class="mt-5">
+  <h6 class="fw-bold">Published</h6>
+  <p><%= currentJobOffer.jobDate %></p>
+  <a class="btn btn-dark mt-4 mb-5" role="button" href="/jobs"> <- Back </a>
+</div>

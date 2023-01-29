@@ -1,0 +1,84 @@
+<% if (user) { %>
+<nav class="navbar navbar-expand-lg navbar-dark mt-5">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold">Sparx.</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/account/user/dashboard">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/account/user/dashboard/settings"
+            >Settings</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/account/user/dashboard/signout"
+            >Sign Out</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="dashboard__user__profile">
+  <div class="row mb-5">
+    <div class="col d-flex justify-content-center">
+      <div class="dashboard__img__profile"></div>
+    </div>
+    <div class="col">
+      <h2 class="fw-bold display-2">
+        <%= user.firstName %> <%= user.lastName %>
+      </h2>
+      <p>Fullstack Developer</p>
+      <p>Age: <%= user.age %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h5 class="mb-5">Contact</h5>
+      <p><span class="fw-bold">E-mail:</span> <%= user.email %></p>
+      <p><span class="fw-bold">Country:</span> <%= user.country %></p>
+      <p><span class="fw-bold">City:</span> <%= user.city %></p>
+    </div>
+    <div class="col">
+      <h5 class="mb-5">Skills</h5>
+      <p>
+        <span class="fw-bold">Technologies:</span> <%= user.technologySkills %>
+      </p>
+    </div>
+    <div class="col">
+      <h5 class="mb-5">Links</h5>
+      <p><span class="fw-bold">GitHub:</span> <%= user.githubLink %></p>
+      <p><span class="fw-bold">Website:</span> <%= user.websiteLink %></p>
+    </div>
+  </div>
+
+  <div>
+    <a
+      class="btn btn-dark mt-5"
+      href="/account/user/dashboard/settings/edit"
+      role="button"
+      >Edit Account</a
+    >
+  </div>
+</div>
+
+<% } else { %>
+<div class="container auth__info text-center">
+  <h2 class="fw-bold">Sign to company account or create an company account.</h2>
+  <a href="/" class="mt-5" role="button">Home Page</a>
+</div>
+<% }%>

@@ -1,0 +1,208 @@
+<% if (brand) { %>
+<nav class="navbar navbar-expand-lg navbar-dark mt-5">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold">Sparx.</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/account/brand/dashboard">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/account/brand/dashboard/settings"
+            >Settings</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/account/brand/dashboard/signout"
+            >Sign Out</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="brand__settings__edit">
+  <div class="mb-5">
+    <h3 class="fw-bold display-3">Edit Company Profile</h3>
+    <code class="text-success">Company ID: <%- brand._id %></code>
+  </div>
+  <div>
+    <form method="POST">
+      <div>
+        <label class="mb-1 fw-bold">Company Name</label>
+        <div class="mb-4">
+          <input
+            class="form-control <% if (errors?.name) { %> is-invalid <% } %>"
+            type="text"
+            name="name"
+            value="<%= reqBodyData.name %>"
+            placeholder="Enter your new company name"
+          />
+        </div>
+        <% if (errors?.name) { %>
+        <div class="invalid-feedback mb-2 fw-bold">
+          <%= errors.name.message %>
+        </div>
+        <% } %>
+      </div>
+      <div>
+        <label class="mb-1 fw-bold">Company Slug</label>
+        <div class="mb-4">
+          <input
+            class="form-control <% if (errors?.slug) { %> is-invalid <% } %>"
+            type="slug"
+            name="slug"
+            value="<%= reqBodyData.slug %>"
+            placeholder="Enter your new company slug"
+          />
+        </div>
+        <% if (errors?.slug) { %>
+        <div class="invalid-feedback mb-2 fw-bold">
+          <%= errors.slug.message %>
+        </div>
+        <% } %>
+      </div>
+      <div>
+        <label class="mb-1 fw-bold">CEO</label>
+        <div class="mb-4">
+          <input
+            class="form-control <% if (errors?.ceo) { %> is-invalid <% } %>"
+            type="text"
+            name="ceo"
+            value="<%= reqBodyData.ceo %>"
+            placeholder="Enter a new CEO firstname and lastname"
+          />
+        </div>
+        <% if(errors?.ceo) { %>
+        <div class="invalid-feedback mb-2 fw-bold">
+          <%= errors.ceo.message %>
+        </div>
+        <% } %>
+      </div>
+      <div>
+        <label class="mb-1 fw-bold">Email</label>
+        <div class="mb-4">
+          <input
+            class="form-control <% if (errors?.email) { %> is-invalid <% } %>"
+            type="email"
+            name="email"
+            value="<%= reqBodyData.email %>"
+            placeholder="Enter your new email address"
+          />
+        </div>
+        <% if (errors?.email) { %>
+        <div class="invalid-feedback mb-2 fw-bold">
+          <%= errors?.email.message %>
+        </div>
+        <% } %>
+      </div>
+      <div>
+        <label class="mb-1 fw-bold">Password</label>
+        <div class="mb-4">
+          <input
+            class="form-control <% if (errors?.password) { %> is-invalid <% } %>"
+            type="password"
+            name="password"
+            placeholder="Enter your new password"
+          />
+        </div>
+        <% if (errors?.password) { %>
+        <div class="invalid-feedback mb-2 fw-bold">
+          <%= errors.password.message %>
+        </div>
+        <% } %>
+      </div>
+      <div>
+        <label class="mb-1 fw-bold">Phone Number</label>
+        <div class="mb-4">
+          <input
+            class="form-control <% if (errors?.phoneNumber) { %> is-invalid <% } %>"
+            type="text"
+            name="phoneNumber"
+            value="<%= reqBodyData.phoneNumber %>"
+            placeholder="Enter your new phone number"
+          />
+        </div>
+        <% if (errors?.phoneNumber) { %>
+        <div class="invalid-feedback mb-2 fw-bold">
+          <%= errors.phoneNumber.message %>
+        </div>
+        <% } %>
+      </div>
+      <div>
+        <label class="mb-1 fw-bold">Company Description</label>
+        <div class="mb-4">
+          <input
+            class="form-control <% if (errors?.brandDescription) { %> is-invalid <% } %>"
+            type="text"
+            name="brandDescription"
+            value="<%= reqBodyData.brandDescription %>"
+            placeholder="Enter your new company description"
+          />
+        </div>
+        <% if (errors?.brandDescription) { %>
+        <div class="invalid-feedback mb-2 fw-bold">
+          <%= errors.brandDescription.message %>
+        </div>
+        <% } %>
+      </div>
+      <div>
+        <label class="mb-1 fw-bold">Technology Stack</label>
+        <div class="mb-4">
+          <input
+            class="form-control <% if (errors?.technologyStack) { %> is-invalid <% } %>"
+            type="text"
+            name="technologyStack"
+            value="<%= reqBodyData.technologyStack %>"
+            placeholder="Enter your new technology stack (ex. Java, C#, Ruby)"
+          />
+        </div>
+        <% if (errors?.technologyStack) { %>
+        <div class="invalid-feedback mb-2 fw-bold">
+          <%= errors.technologyStack.message %>
+        </div>
+        <% } %>
+      </div>
+      <div>
+        <label class="mb-1 fw-bold">City</label>
+        <div class="mb-4">
+          <input
+            class="form-control <% if (errors?.city) { %> is-invalid <% } %>"
+            type="text"
+            name="city"
+            value="<%= reqBodyData.city %>"
+            placeholder="Enter your city"
+          />
+        </div>
+        <% if (errors?.city) { %>
+        <div class="invalid-feedback mb-2 fw-bold">
+          <%= errors.city.message %>
+        </div>
+        <% } %>
+      </div>
+
+      <button class="btn btn-dark mt-5">Save Changes</button>
+      <% if (errors) { %>
+      <div class="mt-2 text-danger fw-bold">* Something went wrong</div>
+      <% } %>
+    </form>
+
+    <% } else { %>
+    <h4 class="fw-bold display-4">
+      Sign In to your account or create an account.
+    </h4>
+    <% }%>
+  </div>
+</div>

@@ -1,0 +1,118 @@
+<div class="brand__signup__form">
+  <div class="mt-5">
+    <h2 class="fw-bold">Create an account</h2>
+    <p>Let's get started with your Sparx brand account</p>
+  </div>
+
+  <div class="mt-5">
+    <form method="POST">
+      <div>
+        <label class="form-label fw-bold">Brand Name</label>
+        <input
+          type="text"
+          name="name"
+          class="form-control <%- errors?.name ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.name %>"
+          placeholder="Enter your brand name"
+        />
+        <% if (errors?.name) { %>
+        <div class="invalid-feedback mb-2"><%= errors.name.message %></div>
+        <% } %>
+      </div>
+      <div>
+        <label class="form-label fw-bold">Brand Slug</label>
+        <input
+          type="text"
+          name="slug"
+          class="form-control <%- errors?.slug ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.slug %>"
+          placeholder="Enter your brand slug"
+        />
+        <% if (errors?.slug) { %>
+        <div class="invalid-feedback mb-2"><%= errors.slug.message %></div>
+        <% } %>
+      </div>
+      <div>
+        <label class="form-label fw-bold">Brand Email</label>
+        <input
+          type="email"
+          name="email"
+          class="form-control <%- errors?.email ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.email %>"
+          placeholder="Enter your brand email"
+        />
+        <% if (errors?.email) { %>
+        <div class="invalid-feedback mb-2"><%= errors.email.message %></div>
+        <% } %>
+      </div>
+      <div>
+        <label class="form-label fw-bold">Brand Password</label>
+        <input
+          type="password"
+          name="password"
+          class="form-control <%- errors?.password ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.password %>"
+          placeholder="Enter your brand password"
+        />
+        <% if (errors?.password) { %>
+        <div class="invalid-feedback mb-2"><%= errors.password.message %></div>
+        <% } %>
+      </div>
+      <div>
+        <label class="form-label fw-bold">Brand CEO</label>
+        <input
+          type="text"
+          name="ceo"
+          class="form-control <%- errors?.ceo ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.ceo %>"
+          placeholder="Enter your brand CEO"
+        />
+        <% if (errors?.ceo) { %>
+        <div class="invalid-feedback mb-2"><%= errors.ceo.message %></div>
+        <% } %>
+      </div>
+      <div>
+        <label class="form-label fw-bold">Employees Count</label>
+        <input
+          type="text"
+          name="employeesCount"
+          class="form-control <%- errors?.employeesCount ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.employeesCount %>"
+          placeholder="Enter your brand employees count"
+        />
+        <% if (errors?.employeesCount) { %>
+        <div class="invalid-feedback mb-2">
+          <%= errors.employeesCount.message %>
+        </div>
+        <% } %>
+      </div>
+      <div>
+        <label class="form-label fw-bold">Country</label>
+        <input
+          type="text"
+          name="country"
+          class="form-control <%- errors?.country ? 'is-invalid' : '' %> mb-3"
+          value="<%- reqBodyData.country %>"
+          placeholder="Enter your brand location"
+        />
+        <% if (errors?.country) { %>
+        <div class="invalid-feedback mb-2"><%= errors.country.message %></div>
+        <% } %>
+      </div>
+
+      <div class="d-flex justify-content-center flex-column mt-3">
+        <div class="mt-5">
+          <button class="btn btn-dark sign__in--btn">Create an account</button>
+          <p class="mt-5 text-center">
+            Already have an Account?
+            <a href="/account/brand/signin" class="text-primary">Sign In</a>
+          </p>
+        </div>
+      </div>
+
+      <% if (errors) { %>
+      <div class="mt-2 text-danger mt-5 mb-5">* Something went wrong</div>
+      <% } %>
+    </form>
+  </div>
+</div>

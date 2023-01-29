@@ -1,0 +1,422 @@
+/* CSS Variables */
+
+:root {
+  --darkGrey: #101010;
+  --white: #fff;
+  --violet: #693dbf;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Chakra Petch", sans-serif;
+}
+
+body {
+  background: var(--darkGrey);
+  color: var(--white);
+}
+
+/* Containers */
+
+.auth__info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.home__features__container {
+  margin-top: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 80vh;
+}
+
+.home__features__span {
+  font-weight: bolder;
+  text-decoration: underline;
+  color: var(--violet);
+}
+
+.slider_container {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* About Container */
+
+.about__container {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50vh;
+}
+
+/* Ratings Container */
+
+.ratings__container {
+  height: 100vh;
+  background-color: var(--darkGrey);
+}
+
+.user--form_rating {
+  padding: 2rem;
+}
+
+.rating__level {
+  color: var(--violet);
+}
+
+/* FAQ Container */
+
+.FAQ__container {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* GetStarted Container */
+
+.getStarted__container {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  height: 80vh;
+}
+
+/* Search Container */
+
+.search__container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 80vh;
+}
+
+/* Not Found Container */
+
+.not_found__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Footer Container */
+
+.footer__container {
+  background: url("../assets/Animated\ Shape.svg");
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 60vh;
+}
+
+.newsletter__container {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.get_started--container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.not_found--container,
+.get_started--container {
+  height: 100vh;
+}
+
+.get_started--flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.company_signin--container {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 90vh;
+}
+
+/* Links */
+.get_started--link {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Get Started */
+
+.get_started--item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Nav */
+
+.navbar-collapse {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Accordion FQS */
+
+.accordion-body,
+.accordion-button {
+  background-color: #000;
+  border: none;
+}
+
+.accordion-button {
+  color: #fff;
+}
+
+a,
+a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Job Offers */
+
+.jobsContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  overflow-y: scroll;
+  background-color: #101010;
+}
+
+.job__container--item {
+  background: #693dbf;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.job__container--item > div {
+  background-color: #10101029;
+}
+
+.jobOffersSection {
+  margin-top: 10rem;
+}
+
+.card {
+  border-radius: 0;
+  border: 1px solid #fff;
+  background-color: #000;
+}
+
+/* SearchBrands Container, SearchUsers Container */
+
+.searchBrands__container,
+.searchUsers__container {
+  margin-top: 6rem;
+}
+
+/* Form Inputs */
+
+.form-control {
+  background-color: #232323;
+  color: #fff;
+  border: none;
+}
+
+/* Brand Dashboard Layout */
+
+.brand__dashboard,
+.user__dashboard {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 80vh;
+}
+
+.brand__settings__edit,
+.user__settings__edit {
+  margin-top: 5rem;
+}
+
+.brand__job__form__container {
+  margin-top: 8rem;
+  margin-bottom: 6rem;
+}
+
+/* User */
+
+.dashboard__img__profile {
+  background: url("../assets/layered-waves-haikei.svg");
+  background-size: cover;
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+}
+
+.dashboard__user__profile,
+.dashboard__brand__profile {
+  margin-top: 10rem;
+}
+
+.user__form__rating {
+  margin-top: 10rem;
+}
+
+/* User Sign Up & Sign In Form */
+
+.user__signup__form,
+.user__signin__form {
+  padding: 2rem;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+.sign__in__btn,
+.sign__up__btn {
+  width: 100%;
+}
+
+/* Brand Sign Up Form & Brand Sign In Form*/
+
+.brand__signup__form,
+.brand__signin__form {
+  padding: 2rem;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* User Profile Search Card */
+
+.user__img--profile {
+  background: url("../assets/layered-waves-haikei.svg");
+  background-size: cover;
+  height: 90px;
+  width: 90px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* User Profile Page*/
+
+.user__profile__container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.profile__img__section {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 10rem;
+}
+
+.profile__theme {
+  margin-top: 5rem;
+  height: 30vh;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.profile__img {
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  background: url("../assets/layered-waves-haikei.svg");
+  background-size: cover;
+}
+
+/* Brand Profile */
+
+.profile__brand__heading {
+  margin-top: 15rem;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.brand__profile__img {
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  background: url("../assets/layered-waves-haikei.svg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 200px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0.9rem;
+    padding-left: 0.9rem;
+  }
+
+  .carousel {
+    margin-bottom: 10rem;
+  }
+
+  .about__container {
+    margin-top: 20rem;
+    margin-bottom: 20rem;
+  }
+
+  .about__container,
+  .footer__container {
+    height: 100vh;
+  }
+
+  .user__signup__form {
+    margin-top: 15rem;
+  }
+
+  .user__profile__container {
+    margin-top: 10rem;
+  }
+
+  .brand__signup__form {
+    margin-top: 15rem;
+    height: 120vh;
+  }
+}

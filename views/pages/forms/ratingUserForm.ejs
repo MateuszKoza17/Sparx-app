@@ -1,0 +1,79 @@
+<% if (user) { %>
+<div class="user__form__rating">
+  <div class="container mt-5">
+    <div class="mb-5">
+      <h2 class="display-2 fw-bold">Rating Form</h2>
+      <p>You can add your rating comment about our web app</p>
+    </div>
+    <form method="POST">
+      <div>
+        <label class="form-label mb-2">Description</label>
+        <textarea
+          class="form-control mb-2 <%- errors?.rateDescription ? 'is-invalid' : '' %>"
+          name="rateDescription"
+          value="<%- reqBodyData.rateDescription %>"
+          placeholder="Enter rating description"
+          required
+        ></textarea>
+        <% if (errors?.rateDescription) { %>
+        <div class="invalid-feedback">
+          <%= errors.rateDescription.message %>
+        </div>
+        <% } %>
+      </div>
+      <div>
+        <label class="form-label mb-2">Rating Level</label>
+        <input
+          type="number"
+          name="rateLevel"
+          class="form-control mb-2 <%- errors?.rateLevel ? 'is-invalid' : '' %>"
+          value="<%- reqBodyData.rateLevel %>"
+          placeholder="Enter rating level (0-5)"
+          min="0"
+          max="5"
+          required
+        />
+        <% if (errors?.rateLevel) { %>
+        <div class="invalid-feedback"><%= errors.rateLevel.message %></div>
+        <% } %>
+      </div>
+      <button
+        class="btn btn-outline-success mt-5"
+      >
+        Publish
+      </button>
+    </form>
+
+    <div class="container-fluid mt-5">
+      <div>
+        <h4 class="display-4 fw-bold">Rating Posted</h4>
+        <p>Edit your posted rating</p>
+      </div>
+
+      <% currentRating.forEach(rating => { %>
+      <div>
+        <div class="card m-5">
+          <div class="card-body text-white">
+            <h5 class="card-title fw-bold">Rating</h5>
+            <p>Description: "<%= rating.ratingDescription %>"</p>
+            <p>Rating posted: <%= rating.ratingDate %></p>
+            <a
+              href="/account/user/dashboard/rating/delete"
+              class="btn btn-outline-danger"
+              role="button"
+              >Delete Rating</a
+            >
+          </div>
+        </div>
+      </div>
+      <% }); %>
+      <a href="/account/user/dashboard" class="btn btn-dark mt-5" role="button"
+        ><- Back</a
+      >
+    </div>
+  </div>
+</div>
+
+<% } else { %>
+<h4 class="fw-bold display-4">Sign In to your account or create an account.</h4>
+<% }%>

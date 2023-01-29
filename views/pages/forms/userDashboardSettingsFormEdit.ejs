@@ -1,0 +1,174 @@
+<% if (user) { %>
+<nav class="navbar navbar-expand-lg navbar-dark mt-5">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold">Sparx.</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/account/user/dashboard">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/account/user/dashboard/settings"
+            >Settings</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/account/user/dashboard/signout"
+            >Sign Out</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="user__settings__edit">
+  <div class="mb-5">
+    <h3 class="fw-bold display-3">Edit Profile</h3>
+    <code class="text-success">User ID: <%- user._id %></code>
+  </div>
+  <div>
+    <form method="POST">
+      <div>
+        <label class="mb-1 fw-bold">Email</label>
+        <div class="mb-4">
+          <input
+            class="form-control <% if (errors?.email) { %> is-invalid <% } %>"
+            type="email"
+            name="email"
+            value="<%= reqBodyData.email %>"
+            placeholder="Enter your new email address"
+          />
+        </div>
+        <% if(errors?.email) { %>
+        <div class="invalid-feedback mb-2 fw-bold">
+          <%= errors.email.message %>
+        </div>
+        <% } %>
+      </div>
+      <div>
+        <label class="mb-1 fw-bold">Password</label>
+        <div class="mb-4">
+          <input
+            class="form-control <% if (errors?.password) { %> is-invalid <% } %>"
+            type="password"
+            name="password"
+            placeholder="Enter your new password"
+          />
+        </div>
+        <% if (errors?.password) { %>
+        <div class="invalid-feedback mb-2 fw-bold">
+          <%= errors?.password.message %>
+        </div>
+        <% } %>
+      </div>
+      <div>
+        <label class="mb-1 fw-bold">Technology Skills</label>
+        <div class="mb-4">
+          <input
+            class="form-control <% if (errors?.technologySkills) { %> is-invalid <% } %>"
+            type="text"
+            name="technologySkills"
+            value="<%= reqBodyData.technologySkills %>"
+            placeholder="Enter your new skills (ex. Java, C#, Ruby)"
+          />
+        </div>
+        <% if (errors?.technologySkills) { %>
+        <div class="invalid-feedback mb-2 fw-bold">
+          <%= errors?.technologySkills.message %>
+        </div>
+        <% } %>
+      </div>
+      <div>
+        <label class="mb-1 fw-bold">GitHub Link</label>
+        <div class="mb-4">
+          <input
+            class="form-control <% if (errors?.githubLink) { %> is-invalid <% } %>"
+            type="text"
+            name="githubLink"
+            value="<%= reqBodyData.githubLink %>"
+            placeholder="Enter your new GitHub link"
+          />
+        </div>
+        <% if (errors?.githubLink) { %>
+        <div class="invalid-feedback mb-2 fw-bold">
+          <%= errors?.githubLink.message %>
+        </div>
+        <% } %>
+      </div>
+      <div>
+        <label class="mb-1 fw-bold">Website Link</label>
+        <div class="mb-4">
+          <input
+            class="form-control <% if (errors?.websiteLink) { %> is-invalid <% } %>"
+            type="text"
+            name="websiteLink"
+            value="<%= reqBodyData.websiteLink %>"
+            placeholder="Enter your new website link"
+          />
+        </div>
+        <% if (errors?.websiteLink) { %>
+        <div class="invalid-feedback mb-2 fw-bold">
+          <%= errors?.password.message %>
+        </div>
+        <% } %>
+      </div>
+      <div>
+        <label class="mb-1 fw-bold">Account Description</label>
+        <div class="mb-4">
+          <input
+            class="form-control <% if (errors?.userDescription) { %> is-invalid <% } %>"
+            type="text"
+            name="userDescription"
+            value="<%= reqBodyData.userDescription %>"
+            placeholder="Enter your new website link"
+          />
+        </div>
+        <% if (errors?.userDescription) { %>
+        <div class="invalid-feedback mb-2 fw-bold">
+          <%= errors?.userDescription.message %>
+        </div>
+        <% } %>
+      </div>
+      <div>
+        <label class="mb-1 fw-bold">City</label>
+        <div class="mb-4">
+          <input
+            class="form-control <% if (errors?.city) { %> is-invalid <% } %>"
+            type="text"
+            name="city"
+            value="<%= reqBodyData.city %>"
+            placeholder="Enter your city"
+          />
+        </div>
+        <% if(errors?.city) { %>
+        <div class="invalid-feedback mb-2 fw-bold">
+          <%= errors.city.message %>
+        </div>
+        <% } %>
+      </div>
+
+      <button class="btn btn-dark sign_up--btn mt-5">Save changes</button>
+      <% if (errors) { %>
+      <div class="mt-2 text-danger fw-bold">* Something went wrong</div>
+      <% } %>
+    </form>
+  </div>
+
+  <% } else { %>
+  <h4 class="fw-bold display-4">
+    Sign In to your account or create an account.
+  </h4>
+  <% }%>
+</div>
