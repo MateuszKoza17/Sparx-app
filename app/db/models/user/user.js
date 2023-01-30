@@ -27,11 +27,6 @@ const userSchema = new Schema({
     required: [true, "This field is required"],
     trim: true,
   },
-  userJob: {
-    type: String,
-    required: false,
-    default: "",
-  },
   technologySkills: {
     type: String,
     required: false,

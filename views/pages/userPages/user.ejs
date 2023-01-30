@@ -33,9 +33,17 @@
     <div>
       <h6 class="fw-bold">Portfolio</h6>
       <p>
-        <span class="fw-bold">Website:</span> <%= currentUser.websiteLink %>
+        <span class="fw-bold">Website:</span>
+        <a href="<%= currentUser.websiteLink %>" target="_blank"
+          ><%= currentUser.websiteLink %></a
+        >
       </p>
-      <p><span class="fw-bold">GitHub:</span> <%= currentUser.githubLink %></p>
+      <p>
+        <span class="fw-bold">GitHub:</span>
+        <a href="<%= currentUser.githubLink %>" target="_blank"
+          ><%= currentUser.githubLink %></a
+        >
+      </p>
     </div>
   </div>
 
